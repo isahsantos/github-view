@@ -1,0 +1,11 @@
+  
+.profile-card{
+    width: 50%;
+}
+.card-media{
+    height: 250px;
+}
+.div-profile-card{
+    display: flex;
+    justify-content: center;
+}
