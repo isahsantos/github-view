@@ -9,10 +9,17 @@ export async function getUserByUserName(username) {
   return retorno && retorno.data;
 }
 
-const getRepoByUserName = (username) => {
-  return Axios.get("https://api.github.com/users/" + username + "/repos");
-};
-const getStarred = (stars) => {
-  return Axios.get("https://api.github.com/users/" + stars + "/repos");
-};
+export async function getRepoByUser(username) {
+  console.log("Repositorios function => ", username);
+  try {
+    const repos = await Axios.get(
+      "https://api.github.com/users/" + username + "/repos"
+    );
 
+    console.log("Repositorios => ", repos);
+
+    return repos && repos.data;
+  } catch (error) {
+   return error
+  }
+}
