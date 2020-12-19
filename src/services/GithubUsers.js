@@ -11,7 +11,6 @@ export async function getUserByUserName(username) {
 
 export async function getRepoByUser(username) {
   console.log("Repositorios function => ", username);
-  try {
     const repos = await Axios.get(
       "https://api.github.com/users/" + username + "/repos"
     );
@@ -19,7 +18,5 @@ export async function getRepoByUser(username) {
     console.log("Repositorios => ", repos);
 
     return repos && repos.data;
-  } catch (error) {
-   return error
-  }
+  
 }

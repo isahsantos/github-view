@@ -1,29 +1,25 @@
-import React from "react"
+import React, {useState} from "react"
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import SaveIcon from '@material-ui/icons/Save';
+import Repo from '../UserRepo/UserRepo'
 import '../../assets/style/UserProfile.css'
-function userProfile (props) {
+
+export default function UserProfile (props) {
  
 var userProfile = props.result;
-        console.log("Props", props)
-        console.log("Result",props.result)
-
-  
+var  [list,setList] = useState(false);
+console.log("Set List", list)
       return( <>
       <Card className="profile-card">
           
       <CardActionArea>
-        <CardMedia
-          image={userProfile.avatar_url}
-          alt="User Perfil"
-        />
         <CardContent>
-        <img src={userProfile.avatar_url}  width="90rem" height="90rem"/>
+        <img src={userProfile.avatar_url} alt="description of image"  width="90rem" height="90rem"/>
           <Typography gutterBottom variant="h5" component="h2">
             {userProfile.name}
           </Typography>
@@ -41,12 +37,21 @@ var userProfile = props.result;
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button target="__blank" size="small"  color="primary">
-          View Details
-        </Button>
+      <Button
+        variant="contained"
+        color="primary"
+        size="small"
+        type="subimit"
+        onClick={() => setList(true)}
+        startIcon={<SaveIcon />}
+      >
+        Save
+      </Button>
+
       </CardActions>
+   
     </Card>
+    { list ? <Repo result= {userProfile.login} /> : null }
     </>
       )
 }
-export default userProfile;
