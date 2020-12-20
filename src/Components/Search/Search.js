@@ -5,7 +5,7 @@ import { getUserByUserName } from "../../services/GithubUsers";
 import Button from "@material-ui/core/Button";
 import Search from "@material-ui/icons/Search";
 import "../../assets/style/Search.css";
-export default function SearchUser(props) {
+export default function SearchUser() {
   var [hiden, setHiden] = useState(false);
   const [user, setUser] = useState([]);
 
@@ -15,7 +15,6 @@ export default function SearchUser(props) {
     getUserByUserName(user).then((user) => {
       setUser(user);
     });
-    props = user;
   };
   return (
     <>
@@ -43,11 +42,10 @@ export default function SearchUser(props) {
             type="submit"
           >
             <Search />
-            Search
+            Buscar
           </Button>
         </form>
       </div>
-
       <div>{hiden === true && <UserProfile result={user} />}</div>
     </>
   );

@@ -19,3 +19,15 @@ export async function getRepoByUser(username) {
 
   return repos && repos.data;
 }
+
+
+export async function getRepoStarred(username) {
+  console.log("Repositorios function => ", username);
+  const repos = await Axios.get(
+    "https://api.github.com/users/" + username + "/starred"
+  );
+
+  console.log("Repositorios => ", repos);
+
+  return repos && repos.data;
+}

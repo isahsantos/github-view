@@ -1,19 +1,27 @@
-.MuiTextField-root{
-    width: 50vw;
+.MuiTextField-root {
+  width: 50vw;
 }
-img{
-    border-radius: 50%; 
+.image-round {
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
 }
-.profile-card{
-    width: 345px;
-    float: center;
-    margin:auto;
-    margin-top:30px;
-    text-align:center;
-    position: relative;
+.profile-card {
+  width: 345px;
+  float: center;
+  margin: auto;
+  margin-top: 3px;
+  text-align: center;
+  position: relative;
 }
 
-.div-profile-card{
-    display: flex;
-  
+.div-profile-card {
+  display: flex;
+}
+.icone {
+  color: #613dc1;
+  font-size: 5px;
+  align-items: center;
+  margin-right: 3px;
+  margin-bottom: -3px;
 }

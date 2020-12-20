@@ -7,15 +7,20 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import FolderIcon from "@material-ui/icons/Folder";
 import StarsIcon from "@material-ui/icons/Stars";
+import UserRepoStarred from "../UserStarred/UserStarred";
+import FaceIcon from "@material-ui/icons/Face";
 import Repo from "../UserRepo/UserRepo";
 import "../../assets/style/UserProfile.css";
 
 export default function UserProfile(props) {
   var userProfile = props.result;
-  var [list, setList] = useState(false);
-  console.log("Set List", list);
-  function handleChange(){
-    setList((open)=>!open)
+  var [listRepo, setListRepo] = useState(false);
+  var [listStarred, setListStarred] = useState(false);
+  function handleChange() {
+    setListRepo((open) => !open);
+  }
+  function handleChangeStarred() {
+    setListStarred((open) => !open);
   }
   return (
     <>
@@ -24,12 +29,17 @@ export default function UserProfile(props) {
           <CardContent>
             <img
               src={userProfile.avatar_url}
-              alt="description of image"
-              width="90rem"
-              height="90rem"
+              className="image-round"
+              alt="profile"
             />
             <Typography gutterBottom variant="h5" component="h2">
               {userProfile.name}
+            </Typography>
+            <Typography>
+              <FaceIcon className="icone" />
+              <Button href={userProfile.html_url} color="primary">
+                Ver Perfil
+              </Button>
             </Typography>
             <Typography component="p">{userProfile.bio}</Typography>
             <br />
@@ -52,6 +62,7 @@ export default function UserProfile(props) {
             type="subimit"
             style={{ backgroundColor: "#613dc1", color: "white", margin: 15 }}
             onClick={handleChange}
+            onChange={() => setListRepo(true)}
             startIcon={<FolderIcon />}
           >
             Repositórios
@@ -62,14 +73,17 @@ export default function UserProfile(props) {
             size="small"
             type="subimit"
             style={{ backgroundColor: "#613dc1", color: "white" }}
-            onClick={() => setList(true)}
+            onClick={handleChangeStarred}
             startIcon={<StarsIcon />}
           >
             Favoritos
           </Button>
         </CardActions>
       </Card>
-      {list ? <Repo caraio="true" result={userProfile.login} /> : null}
+      {listRepo && <Repo open={listRepo} result={userProfile.login} />}
+      {listStarred && (
+        <UserRepoStarred open={listStarred} result={userProfile.login} />
+      )}
     </>
   );
 }
