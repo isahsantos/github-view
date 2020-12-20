@@ -13,6 +13,10 @@ import "../../assets/style/UserProfile.css";
 export default function UserProfile(props) {
   var userProfile = props.result;
   var [list, setList] = useState(false);
+  console.log("Set List", list);
+  function handleChange(){
+    setList((open)=>!open)
+  }
   return (
     <>
       <Card className="profile-card">
@@ -47,7 +51,7 @@ export default function UserProfile(props) {
             size="small"
             type="subimit"
             style={{ backgroundColor: "#613dc1", color: "white", margin: 15 }}
-            onClick={() => setList(true)}
+            onClick={handleChange}
             startIcon={<FolderIcon />}
           >
             Repositórios
@@ -65,7 +69,7 @@ export default function UserProfile(props) {
           </Button>
         </CardActions>
       </Card>
-      {list ? <Repo result={userProfile.login} /> : null}
+      {list ? <Repo caraio="true" result={userProfile.login} /> : null}
     </>
   );
 }
