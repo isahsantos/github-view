@@ -1,13 +1,12 @@
 # GitHub Busca de Usuários   🔍💡 📕  
 
-Este projeto tem por objetivo fazer uma pagina de busca de usuários do github, utilizando a REST API do git 
+Este projeto tem por objetivo fazer uma página de busca de usuários do github, utilizando a REST API do git 
 
 ###  Executando Localmente: 💻
 
 Execute este projeto localmente: 
-Através do comando `yarn start`
-A aplicação será exibida  em seu navegador no seguinte endereço [http://localhost:3000]
-
+Através do comando `yarn start` aplicação será exibida  em seu navegador no seguinte endereço: [https://localhost:3000]
+      
 ###  Executando Externamente: 🌏 
 
 Basta acessar o link: [https://buscagitporisahsantos.netlify.app/]
