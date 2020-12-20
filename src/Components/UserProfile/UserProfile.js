@@ -13,7 +13,6 @@ import "../../assets/style/UserProfile.css";
 export default function UserProfile(props) {
   var userProfile = props.result;
   var [list, setList] = useState(false);
-  console.log("Set List", list);
   return (
     <>
       <Card className="profile-card">

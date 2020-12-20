@@ -11,12 +11,11 @@ export async function getUserByUserName(username) {
 
 export async function getRepoByUser(username) {
   console.log("Repositorios function => ", username);
-    const repos = await Axios.get(
-      "https://api.github.com/users/" + username + "/repos"
-    );
+  const repos = await Axios.get(
+    "https://api.github.com/users/" + username + "/repos"
+  );
 
-    console.log("Repositorios => ", repos);
+  console.log("Repositorios => ", repos);
 
-    return repos && repos.data;
-  
+  return repos && repos.data;
 }
